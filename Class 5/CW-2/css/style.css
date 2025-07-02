@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 200px;
+    height: 200px;
+    /* background-color: #ff0000; */
+    background-image: linear-gradient(to right, red, rgb(189, 189, 20));
+    margin: 20px;
+    position: relative;
+    /* top: 20px;
+    left: 20px; */
+
+}
+
+.container:hover {
+    top: 20px;
+    right: -20px;
+}
+
+.main {
+    width: 200px;
+    height: 200px;
+    background-image: linear-gradient(to right, blue, rgba(255, 3, 3, 0.925));
+    margin: 20px auto;
+    position: relative;
+
+}
+
+.pain {
+    width: 100px;
+    height: 100px;
+    background-image: linear-gradient(to right, rgb(0, 176, 230), rgb(189, 189, 20));
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    transition: 3s;
+}
+
+.main:hover .pain {
+    top: 150px;
+    left: 150px;
+}
+
+.gain {
+    width: 100px;
+    height: 100px;
+    background-image: linear-gradient(to right, rgb(0, 176, 230), rgb(5, 1, 1));
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    transition: 3s;
+
+
+}
+
+.main:hover .gain {
+    bottom: 150px;
+    right: 150px;
+}
+
+.dain {
+    width: 100px;
+    height: 100px;
+    background-image: linear-gradient(to right, rgb(230, 0, 211), rgb(75, 87, 255));
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: 3s;
+
+}
+
+.main:hover .dain {
+    top: 150px;
+    right: 150px;
+}
+
+.chain {
+    width: 100px;
+    height: 100px;
+    background-image: linear-gradient(to right, rgba(252, 103, 103, 0.411), rgb(75, 87, 255));
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    transition: 3s;
+}
+
+.main:hover .chain {
+    bottom: 150px;
+    left: 150px;
+}
+
+.dhaka {
+    width: 200px;
+    height: 500px;
+    background-image: linear-gradient(to right, rgb(0, 176, 230), rgb(189, 189, 20));
+    margin: 80px auto 800px;
+    border: 1px solid black;
+}
+
+.dhanmondi {
+    width: 160px;
+    height: 160px;
+    background-image: linear-gradient(to right, rgb(255, 0, 0), rgba(86, 3, 196, 0.938), rgba(60, 58, 175, 0.938));
+    position: sticky;
+    top: 20px;
+    margin: 0 auto 20px;
+    border: 1px solid black;
+}
+
+.g2t{
+    width: max-content;
+    padding: 8px 16px;
+    background-color: rgb(6, 163, 142);
+    color: white;
+    border-radius: 8px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}

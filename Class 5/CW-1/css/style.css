@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.banner {
+    width: 100%;
+    height: 600px;
+
+    /* background-image: url(../images/3.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: aquamarine; */
+    background:  linear-gradient(to top right,  rgba(253, 174, 174, 0.5),rgba(9, 209, 166, 0.226), rgba(214, 85, 85, 0.5)), url(../images/3.jpg) rgb(255, 83, 3) no-repeat center / contain;
+    display: flex;
+}
+.banner > img{
+    height: 200px;
+    margin: auto;  
+    display: block;
+    
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    background: url(../images/wallpaper.webp);
+    background-size: 400px
+}

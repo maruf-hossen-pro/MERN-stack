@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 800px;
+    margin: 20px auto;
+    display: table;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+.row{
+    display: table-row;
+}
+.col{
+    display: table-cell;
+    padding: 8px 12px;
+    vertical-align: middle;
+}
+.container > .row:not(:last-child) > .col{
+    border-bottom: 1px solid #ccc;
+}
+.row > .col:not(:last-child){
+    border-right: 1px solid #ccc;
+}
+.transform{
+    width: 200px;
+    height: 200px;
+    margin: 20px auto 600px;
+    background: url(./Government_Seal_of_Bangladesh.svg.png);
+    background-size: cover;
+    transition: transform 0.5s linear;
+}
+.transform:hover{
+    /* transform: translate(50px,50px);*/
+     /* transform: scale(120%); */
+    /* transform: rotate(360deg); */
+    /* transform: skew(20deg, -20deg);*/
+    transform: translate(-20px,-20px) scale(0.9) rotateY(360deg) ;
+}
+.faqrul{
+    width: 400px;
+    height: 400px;
+    background: url(./faqrul.jpg);
+    background-size: cover;
+    position: fixed;
+    border-radius: 50%;
+    bottom: 20px;
+    animation: faqrul 10s linear infinite;
+}
+
+@keyframes faqrul{
+    0%{
+        background: url(./faqrul.jpg);
+        background-size: cover;
+        background-position: center;
+        transform: rotate(0deg);
+        left: -400px;
+    }
+    50%{
+        background: url(./baby-goat-smiling-msn.webp);
+        background-size: cover;
+        background-position: center;
+        transform: rotate(180deg);
+        left: calc(50% - 200px);
+    }
+    75%{
+        background: url(./kawya.jpg);
+        background-size: cover;
+        background-position: center;
+        transform: rotate(270deg);
+        left: (75% -200px);
+    }
+    100%{
+        background: url(./faqrul.jpg);
+        background-size: cover;
+        background-position: center;
+        transform: rotate(360deg);
+        left: 100%;
+    }
+}

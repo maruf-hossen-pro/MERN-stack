@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./CSS/style.min.css" class="css">
+</head>
+
+<body>
+  <!-- Navbar Start -->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="./Images/log.png" alt="" class="img-fluid" style="height: 60px;">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#"><i
+                class="fa-solid fa-house-circle-check"></i>Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Soilders</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dark Army
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Products</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">About</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">Blog</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Username" aria-label="Username">
+            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <!-- Slider -->
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="3000">
+        <img src="./Images/1.jpg" class="d-block w-100" alt="..." style="height: 700px; object-fit: cover;">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>First slide label</h5>
+          <p>Some representative placeholder content for the first slide.</p>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="3000">
+        <img src="./Images/2.jpg" class="d-block w-100" alt="..." style="height: 700px; object-fit: cover;">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Second slide label</h5>
+          <p>Some representative placeholder content for the second slide.</p>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="3000">
+        <img src="./Images/3.jpg" class="d-block w-100" alt="" style="height: 700px; object-fit: cover;">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Third slide label</h5>
+          <p>Some representative placeholder content for the third slide.</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <!-- Slide bar end -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center p-4 display-4 fw-bold">
+        Our Activity
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-3">
+        <div class="card">
+          <img src="./Images/11.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Leader 1</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. In sit atque minima optio odio
+              omnis exercitationem natus impedit quae laborum?</p>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Leader1Modal">Profile</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card ">
+          <img src="./Images/13.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Leader 2</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. In sit atque minima optio odio
+              omnis exercitationem natus impedit quae laborum?</p>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Leader2Modal">Profile</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <img src="./Images/15.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Learder 3</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. In sit atque minima optio odio
+              omnis exercitationem natus impedit quae laborum?</p>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Leader3Modal">Profile</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <img src="./Images/14.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Leader 4</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. In sit atque minima optio odio
+              omnis exercitationem natus impedit quae laborum?</p>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Leader4Modal">Profile</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center p-4 display-4 fw-bold">
+        Contact Us
+      </div>
+      <div class="col-md-6">
+        <form>
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" rows="3" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <div class="col-md-6 pb-5">
+        <h5>Our Location</h5>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.123456789012!2d-122.419415684681!3d37.774929779759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c8b8b8b8b%3A0x8b8b8b8b8b8b8b8b!2sSan%20Francisco%2C%20CA%2094105%2C%20USA!5e0!3m2!1sen!2sin!4v1616161616161" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+      <footer class="bg-dark text-light text-center p-3">
+        <p>&copy; 2023 Your Company. All rights reserved.</p>
+      </footer>
+    <!-- Modal for leader1Modal -->
+    <div class="modal fade" id="Leader1Modal" tabindex="-1" aria-labelledby="Leader1ModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="Leader1ModalLabel">Leader 1 Profile</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img src="./Images/11.jpg" class="img-fluid" alt="Leader 1">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In sit atque minima optio odio omnis
+              exercitationem natus impedit quae laborum?</p>
+              <p><strong>Email:</strong>
+              Leader1@example.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal for leader2Modal -->
+    <div class="modal fade" id="Leader2Modal" tabindex="-1" aria-labelledby="Leader2ModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="Leader2ModalLabel">Leader 2 Profile</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img src="./Images/13.jpg" class="img-fluid" alt="Leader 2">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In sit atque minima optio odio omnis
+              exercitationem natus impedit quae laborum?</p>
+              <p><strong>Email:</strong>
+              Leader2@example.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal for leader3Modal -->
+    <div class="modal fade" id="Leader3Modal" tabindex="-1" aria-labelledby="Leader3ModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="Leader3ModalLabel">Leader 3 Profile</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img src="./Images/15.jpg" class="img-fluid" alt="Leader 3">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In sit atque minima optio odio omnis
+              exercitationem natus impedit quae laborum?</p>
+            <p><strong>Email:</strong>
+              Leader3@example.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal for leader4Modal -->
+    <div class="modal fade" id="Leader4Modal" tabindex="-1" aria-labelledby="Leader4ModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="Leader4ModalLabel">Leader 4 Profile</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img src="./Images/14.jpg" class="img-fluid" alt="Leader 4">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In sit atque minima optio odio omnis
+              exercitationem natus impedit quae laborum?</p>
+            <p><strong>Email:</strong>
+              Leader4@example.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"></script>
+</body>
+
+</html>

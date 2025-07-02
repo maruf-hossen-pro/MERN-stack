@@ -1,0 +1,9 @@
+---------------Number of Prefix -------------
+
+-webkit-
+-moz-
+-ms-
+-os-
+
+Mainly it work for older browser to run the CSS properly and this https://autoprefixer.github.io/ 
+website mainly help to improve and add the prefix with this codes

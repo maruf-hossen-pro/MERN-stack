@@ -1,0 +1,93 @@
+
+* {
+    margin: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h1 {
+    border-radius: 20px;
+      text-shadow: 0 0 3px #4c00ff, 0 0 5px #000000af;
+    background: linear-gradient(to right, #ff5203, #ffea2d);
+}
+.para1{
+    background: linear-gradient(90deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
+    color: white;
+
+    border-radius: 10px/50%;
+}
+
+.btn {
+    width: 130px;
+    text-align: center;
+    border-width: 0;
+    background: linear-gradient(to right, #ff5203, #ffea2d);    
+    color: white;
+    text-transform: uppercase;
+    border-radius: 10px/50%;
+
+}
+
+.btnn {
+    width: 130px;
+    text-align: center;
+    border-width: 0;
+    background: rgb(247, 87, 87);
+    color: white;
+    text-transform: uppercase;
+    border-radius: 30px/50%;
+}
+
+.btnnn {
+    width: 130px;
+    text-align: center;
+    border-width: 0;
+    background: rgb(56, 139, 56);
+    color: white;
+    text-transform: uppercase;
+    border-radius: 10px;
+}
+
+.btnnm {
+    width: 130px;
+    color: white;
+    background: rgba(0, 0, 225, 0.623);
+    text-transform: uppercase;
+    border-width: 0;
+    border-radius: 20px/50%;
+
+}
+
+.main {
+    width: 300px;
+    font-weight: bold;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+    /* padding: 20px 20px; left right padding
+    padding: 20px; */
+    border: 8px solid #0007;
+    border-radius: 20px;
+    background: linear-gradient(to right, #0ed689b9, #c91f1fd7);
+    /* Need to Learn more */
+    box-shadow: 30px 30px 20px #0007;
+    word-spacing: 2px;
+    font-family: Ancizar Serif;
+    text-shadow: 0 0 3px #1e1c245e, 0 0 5px #ff303063;
+    text-decoration: underline;
+    text-decoration-color: #ffea2d;
+
+
+
+}
+
+.abc {
+    width: 130px;
+    text-align: center;
+    border-width: 0;
+    background: rgba(56, 53, 233, 0.623);
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    border-radius: 10px;
+    background: linear-gradient(to right, #ff5203, #025510);
+}

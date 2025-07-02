@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+$paracolor: #e40000;
+$headercolor: #000000;
+
+.main{
+    
+    >h1{
+        color: $headercolor;
+    
+    }
+    >p {
+        color: $paracolor;
+    }
+   
+}

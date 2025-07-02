@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roktakto July</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --grad-primary: linear-gradient(135deg, #0047AB, #00CFFF);
+      --grad-light: linear-gradient(135deg, rgba(0,71,171,0.1), rgba(0,207,255,0.1));
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f0f4f8;
+      color: #333;
+    }
+    .navbar {
+      background: var(--grad-primary) !important;
+    }
+    .navbar-brand, .navbar-nav .nav-link {
+      color: #fff !important;
+      font-weight: 500;
+    }
+    .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+      text-decoration: underline;
+    }
+    .hero {
+      position: relative;
+      padding: 4rem 1rem;
+      overflow: hidden;
+      background: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 1.5rem 3rem rgba(0,0,0,0.1);
+      margin-top: 2rem;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      background: var(--grad-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    .hero p {
+      font-size: 1.125rem;
+      margin-bottom: 2rem;
+    }
+    .hero .btn-primary {
+      background: var(--grad-primary);
+      border: none;
+      padding: 0.75rem 2rem;
+      font-size: 1.125rem;
+      border-radius: 50px;
+      transition: transform 0.3s ease;
+    }
+    .hero .btn-primary:hover {
+      transform: translateY(-4px);
+    }
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--grad-light);
+      z-index: 0;
+    }
+    .blob.one {
+      width: 300px; height: 300px;
+      top: -100px; right: -100px;
+    }
+    .blob.two {
+      width: 200px; height: 200px;
+      bottom: -80px; left: -80px;
+    }
+    footer {
+      margin-top: 3rem;
+      padding: 1.5rem;
+      text-align: center;
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">Roktakto July</a>
+      <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon" style="filter: invert(1)"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">History</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">About Roktakto</a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="#">Movement</a></li>
+              <li><a class="dropdown-item" href="#">Student Movement</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Victory</a></li>
+            </ul>
+          </li>
+          <li class="nav-item ms-lg-3">
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search">
+              <button class="btn btn-outline-light" type="submit">Search</button>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <section class="hero row align-items-center">
+      <div class="blob one"></div>
+      <div class="blob two"></div>
+      <div class="col-lg-6 text-center">
+        <img src="./Images/pngtree-students-quota-movement-roktakto-bangla-fearless-martyr-abu-sayed-brother-with-png-image_13164224.avif" class="img-fluid rounded shadow-lg" alt="Hero image" class="img-fluid">
+      </div>
+      <div class="col-lg-6">
+        <h1>Roktakto July</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat odit, officia omnis non architecto hic molestias dignissimos facilis.</p>
+        <button class="btn btn-primary">
+          Learn More <i class="fa-solid fa-arrow-right ms-2"></i>
+        </button>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 Roktakto July. All rights reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
