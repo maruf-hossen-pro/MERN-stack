@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+
+<body>
+
+    <div
+        class="w-screen h-screen bg-gradient-to-tr from-[#4FC1C6] via-[#00B1E8] via-[#6295f4] to-[#EB277C] flex relative overflow-hidden">
+        <!-- Wave Animation Background -->
+        <div class="absolute inset-x-0 bottom-0 z-0 pointer-events-none">
+            <svg viewBox="0 0 1440 320" class="w-full h-40 md:h-64" preserveAspectRatio="none">
+                <path fill="#ffffff99" fill-opacity="1">
+                    <animate attributeName="d" dur="8s" repeatCount="indefinite" values="
+        M0,160 C360,240 1080,80 1440,160 L1440,320 L0,320 Z;
+        M0,120 C480,200 960,40 1440,120 L1440,320 L0,320 Z;
+        M0,160 C360,80 1080,240 1440,160 L1440,320 L0,320 Z;
+        M0,160 C360,240 1080,80 1440,160 L1440,320 L0,320 Z
+        " />
+                </path>
+            </svg>
+            <!-- Boat SVG floating on the wave -->
+            <svg id="boat" width="80" height="60" class="absolute left-1/2 -translate-x-1/2"
+                style="bottom:70px; z-index:10; pointer-events:none;" viewBox="0 0 80 60">
+                <g>
+                    <!-- Modern Sailboat Design -->
+                    <!-- Hull -->
+                    <rect x="20" y="40" width="40" height="10" rx="5" fill="#3B82F6" />
+                    <!-- Deck -->
+                    <rect x="30" y="36" width="20" height="6" rx="3" fill="#60A5FA" />
+                    <!-- Mast -->
+                    <rect x="39" y="18" width="2" height="18" fill="#374151" />
+                    <!-- Main Sail -->
+                    <polygon points="40,20 40,38 60,38" fill="#FDE68A" />
+                    <!-- Jib Sail -->
+                    <polygon points="40,22 40,38 25,38" fill="#F9FAFB" />
+                    <!-- Cabin Window -->
+                    <ellipse cx="50" cy="42" rx="3" ry="1.5" fill="#2563EB" />
+                    <!-- Animate the boat moving from left to right across the SVG -->
+                    <animateTransform attributeName="transform" type="translate" from="-80 0" to="1440 0" dur="10s"
+                        repeatCount="indefinite" />
+                </g>
+            </svg>
+        </div>
+        <!-- End Wave Animation Background -->
+        <div class=" bg-[#fff9] m-auto p-4 rounded-lg shadow-md ">
+            <h1 class="relative text-4xl md:text-5xl font-extrabold mb-8 text-center text-gray-900 tracking-wide">
+                <span class="relative z-10">Sign Up</span>
+            </h1>
+            </h1>
+            <form action="https://offervaulta.com/" id="regForm">
+                <input type="text" placeholder="Name" name="name"
+                    class="block border p-2 w-80 rounded m-2 outline-cyan-600" />
+                <div class="text-red-500 text-sm px-2 mb-2 w-80"></div>
+                <input type="text" placeholder="Email" name="email"
+                    class="block border p-2 w-80 rounded m-2 outline-cyan-600" />
+                <div class="text-red-500 text-sm px-2 mb-2 w-80"></div>
+
+                <input type="password" placeholder="Password" name="password"
+                    class="block border p-2 w-80 rounded m-2 outline-cyan-600" />
+                <div class="text-red-500 text-sm px-2 mb-2 w-80"></div>
+
+                <input type="password" placeholder="Confirm Password" name="Confirm password"
+                    class="block border p-2 w-80 rounded m-2 outline-cyan-600" />
+                <div class="text-red-500 text-sm px-2 mb-2 w-80"></div>
+
+                <div class="flex items-center m-2">
+                    <input type="checkbox" id="showPassword"
+                        class="accent-cyan-600 h-4 w-4 rounded border-gray-300 focus:ring-cyan-500" />
+                    <label for="showPassword"
+                        class="ml-3 flex items-center gap-2 cursor-pointer text-base font-medium text-gray-700 hover:text-cyan-700 transition-colors">
+                        <span class="tracking-wide">Show Password</span>
+                    </label>
+                </div>
+                <button type="submit"
+                    class="w-full py-2 mt-4 bg-gradient-to-r from-cyan-500 to-pink-500 text-white font-semibold rounded-lg shadow-md hover:from-cyan-600 hover:to-pink-600 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2">
+                    Submit
+                </button>
+            </form>
+        </div>
+    </div>
+    <script>
+        const regForm = document.getElementById('regForm');
+
+        regForm.addEventListener("submit", e => {
+            e.preventDefault()
+
+
+            const formData = new FormData(regForm);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const password = formData.get('password');
+            const confirmPassword = formData.get('Confirm password');
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const validateName = name => {
+                if (name === "") {
+                    regForm[0].nextElementSibling.textContent = "Name is required";
+                } else if (!name.match(/^[a-zA-Z.]+$/)) {
+                    regForm[0].nextElementSibling.textContent = "Name must contain only letters and spaces";
+                } else {
+                    regForm[0].nextElementSibling.textContent = "";
+                }
+            }
+
+            validateName(name);
+            const validateEmail = email => {
+                if (email === "") {
+                    regForm[1].nextElementSibling.textContent = "Email is required";
+                } else if (!email.match(emailPattern)) {
+                    regForm[1].nextElementSibling.textContent = "Invalid email format";
+                } else {
+                    regForm[1].nextElementSibling.textContent = "";
+                }
+            }
+            validateEmail(email);
+
+            validatePassword = password => {
+                if (password === "") {
+                    regForm[2].nextElementSibling.textContent = "Password is required";
+                } else if (password.length < 8) {
+                    regForm[2].nextElementSibling.textContent = "Password must be at least 8 characters long";
+                } else if (!password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/)) {
+                    regForm[2].nextElementSibling.textContent = "Password must contain at least one uppercase letter, one lowercase letter, and one number";
+                } else {
+                    regForm[2].nextElementSibling.textContent = "";
+                }
+            }
+            validatePassword(password);
+
+            validateConfirmPassword = confirmPassword => {
+                if (confirmPassword === "") {
+                    regForm[3].nextElementSibling.textContent = "Confirm Password is required";
+                } else if (confirmPassword !== password) {
+                    regForm[3].nextElementSibling.textContent = "Passwords do not match";
+                } else {
+                    regForm[3].nextElementSibling.textContent = "";
+                }
+            }
+            validateConfirmPassword(confirmPassword);
+            
+            regForm[0].addEventListener("keyup", () => {
+                validateName(regForm[0].value);
+            })
+            regForm[1].addEventListener("keyup", () => {
+                validateEmail(regForm[1].value);
+            })
+            regForm[2].addEventListener("keyup", () => {
+                validatePassword(regForm[2].value);
+            })
+            regForm[3].addEventListener("keyup", () => {
+                validateConfirmPassword(regForm[3].value);
+            })
+
+        })
+
+        const showPassword = document.getElementById('showPassword');
+        showPassword.addEventListener('change', () => {
+            const status = showPassword.checked;
+            regForm[2].type = status ? 'text' : 'password';
+            regForm[3].type = status ? 'text' : 'password';
+            
+        });
+
+    </script>
+</body>
+
+</html>
