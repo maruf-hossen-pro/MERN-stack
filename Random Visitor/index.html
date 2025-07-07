@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Live Visitor Tracker</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #ffffff);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .tracker-container {
+      background: #ffffff;
+      margin-top: 60px;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 500px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #00796b;
+      margin-bottom: 15px;
+    }
+
+    .counter {
+      text-align: center;
+      font-size: 18px;
+      color: #388e3c;
+      margin-bottom: 25px;
+    }
+
+    .visitor-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .visitor {
+      background-color: #f1f1f1;
+      padding: 12px 20px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      animation: fadeIn 0.4s ease-in;
+    }
+
+    .visitor-name {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .visitor-time {
+      font-size: 13px;
+      color: #666;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="tracker-container">
+    <h1>🌍 Live Visitor Tracker</h1>
+    <div class="counter">Current Online Visitors: <span id="visitorCount">0</span></div>
+    <ul class="visitor-list" id="visitorList"></ul>
+  </div>
+
+  <script>
+    const names = [
+      "Alice", "Bob", "Charlie", "Diana", "Ethan", "Fiona", "George",
+      "Hannah", "Ivan", "Jasmine", "Kyle", "Laura", "Mason", "Nina",
+      "Omar", "Paula", "Quinn", "Ravi", "Sophia", "Tom", "Uma", "Victor",
+      "Wendy", "Xander", "Yara", "Zoe"
+    ];
+
+    const visitorList = document.getElementById("visitorList");
+    const visitorCount = document.getElementById("visitorCount");
+    let currentCount = 0;
+
+    function getRandomName() {
+      return names[Math.floor(Math.random() * names.length)];
+    }
+
+    function getCurrentTime() {
+      const now = new Date();
+      return now.toLocaleTimeString();
+    }
+
+    function addVisitor() {
+      const name = getRandomName();
+      const time = getCurrentTime();
+
+      const visitorItem = document.createElement("li");
+      visitorItem.classList.add("visitor");
+      visitorItem.innerHTML = `
+        <span class="visitor-name">${name}</span>
+        <span class="visitor-time">${time}</span>
+      `;
+
+      visitorList.prepend(visitorItem);
+      currentCount++;
+      visitorCount.textContent = currentCount;
+
+      // Auto-remove visitor after 10 seconds
+      setTimeout(() => {
+        visitorItem.remove();
+        currentCount--;
+        visitorCount.textContent = currentCount;
+      }, 10000);
+    }
+
+    // Simulate new visitor every 3 seconds
+    setInterval(addVisitor, 3000);
+  </script>
+
+</body>
+</html>

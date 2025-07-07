@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Clock</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .glass {
+            background: rgba(255,255,255,0.15);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.18);
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+    <div class="w-full max-w-md p-8 glass mx-4">
+        <div class="flex flex-col items-center">
+            <div class="text-5xl font-bold text-white drop-shadow mb-2" id="Clock"></div>
+            <div class="text-xl text-white/80 mb-6" id="date"></div>
+            <div id="week" class="grid grid-cols-7 gap-2 w-full mb-6"></div>
+            <div class="flex justify-between w-full text-white/70 text-sm">
+                <div id="timezone"></div>
+                <div id="greeting"></div>
+            </div>
+            <button id="change-Bg" class="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700">Change Background</button>
+        </div>
+    </div>
+    <script src="./JS/scripts.js"></script>
+</body>
+</html>
