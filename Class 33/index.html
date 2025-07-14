@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div class="w-screen h-screen bg-gradient-to-tr from-indigo-500 via-purple-400 to-amber-100 flex items-center justify-center">
+        <div class="w-full max-w-md p-8 bg-white/90 rounded-2xl shadow-2xl border border-gray-200">
+            <h2 class="text-3xl font-bold text-indigo-700 mb-7 flex items-center gap-2">
+                <i class="fa-solid fa-list-check text-indigo-500"></i>
+                To-do List
+            </h2>
+            <form action="" class="flex mb-4 gap-2" id="todoForm">
+                <input type="text" placeholder="Add a new task..."
+                    class="w-full border border-gray-300 rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-400 transition"
+                    name="task" autocomplete="off">
+                <button
+                    class="bg-indigo-600 text-white rounded-lg px-5 py-2 font-semibold shadow hover:bg-indigo-700 transition">Add</button>
+            </form>
+            <div id="errMsg" class="text-red-600 text-xs mb-2"></div>
+            <div id="tasks" class="divide-y divide-gray-200"></div>
+        </div>
+    </div>
+
+    <!-- showFullTask Modal -->
+    <div class="w-screen h-screen fixed top-0 left-0 flex bg-black/60 opacity-0 invisible transition-all duration-500 ease-in-out z-50"
+        id="fullTaskModal">
+        <div class="m-auto p-6 rounded-xl bg-white shadow-lg w-96 border border-gray-200">
+            <h1 class="text-2xl font-semibold border-b mb-4 pb-2 flex justify-between items-center text-indigo-700">
+                Task
+                <button
+                    class="text-red-600 cursor-pointer border border-red-200 w-10 h-10 rounded-full text-xl flex items-center justify-center hover:bg-red-600 hover:text-white transition"
+                    onclick="closeFullTaskModal()"><i
+                        class="fa-solid fa-xmark"></i></button>
+            </h1>
+            <p id="fullTaskPara" class="text-gray-700 text-lg"></p>
+        </div>
+    </div>
+
+    <!-- editModal -->
+    <div class="w-screen h-screen fixed top-0 left-0 flex bg-black/60 opacity-0 invisible transition-all duration-500 ease-in-out z-50"
+        id="editModal">
+        <div class="m-auto p-6 rounded-xl bg-white shadow-lg w-96 border border-gray-200">
+            <h1 class="text-2xl font-semibold border-b mb-4 pb-2 flex justify-between items-center text-indigo-700">
+                Edit Task
+                <button
+                    class="text-red-600 cursor-pointer border border-red-200 w-10 h-10 rounded-full text-xl flex items-center justify-center hover:bg-red-600 hover:text-white transition"
+                    onclick="closeEditModal()"><i
+                        class="fa-solid fa-xmark"></i></button>
+            </h1>
+            <form ac</svg>tion="" id="editForm" class="flex flex-col gap-3">
+                <input type="text" id="editTask" class="border border-gray-300 rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-400 transition" name="editTask">
+                <button
+                    class="bg-indigo-600 text-white rounded-lg px-5 py-2 font-semibold shadow hover:bg-indigo-700 transition">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const todoForm = document.getElementById("todoForm");
+        const tasksDiv = document.getElementById("tasks");
+        const errMsg = document.getElementById("errMsg");
+        let AllTaskArr = [];
+
+        // Load tasks from localStorage
+        function loadTasks() {
+            const checkLocal = localStorage.getItem("tasks");
+            AllTaskArr = checkLocal ? JSON.parse(checkLocal) : [];
+        }
+
+        // Save tasks to localStorage
+        function saveTasks() {
+            localStorage.setItem("tasks", JSON.stringify(AllTaskArr));
+</svg>        }
+
+        // Render all tasks
+        function showTasks() {
+            loadTasks();
+            tasksDiv.innerHTML = "";
+            if (AllTaskArr.length === 0) {
+                tasksDiv.innerHTML = `<div class="text-gray-400 text-center py-8"><i class="fa-regular fa-face-smile-beam text-4xl mb-2"></i><div>No tasks yet. Enjoy your day!</div></div>`;
+                return;
+            }
+            AllTaskArr.forEach((task, idx) => {
+                showDiv(task, idx);
+            });
+        }
+
+        // Render a single task row
+        function showDiv(task, idx) {
+            const div = document.createElement("div");
+            div.className = "flex items-center py-3 px-2 group hover:bg-indigo-50 transition";
+            div.innerHTML = `
+                <p class="mr-auto truncate pr-2 text-gray-800 text-base">${task}</p>
+                <button class="mr-2 text-indigo-500 opacity-70 group-hover:opacity-100 transition" title="View" onclick="showFullTask(${idx})"><i class="fa-solid fa-eye"></i></button>
+                <button class="mr-2 text-yellow-500 opacity-70 group-hover:opacity-100 transition" title="Edit" onclick="editTask(${idx})"><i class="fa-solid fa-pen-to-square"></i></button>
+                <button class="text-red-500 opacity-70 group-hover:opacity-100 transition" title="Delete" onclick="deleteTask(${idx})"><i class="fa-solid fa-trash"></i></button>
+            `;
+            tasksDiv.appendChild(div);
+        }
+
+        // Add new task
+        todoForm.addEventListener("submit", e => {
+            e.preventDefault();
+            const formData = new FormData(todoForm);
+            const task = formData.get("task").trim();
+            if (!task) {
+                errMsg.textContent = "Please provide a task.";
+            } else {
+                errMsg.textContent = "";
+                loadTasks();
+                AllTaskArr.push(task);
+                saveTasks();
+                todoForm.reset();
+                showTasks();
+            }
+        });
+
+        // View full task
+        const fullTaskModal = document.getElementById("fullTaskModal");
+        const fullTaskPara = document.getElementById("fullTaskPara");
+        window.showFullTask = function(idx) {
+            </button>loadTasks();
+            fullTaskModal.classList.remove("opacity-0", "invisible");
+            fullTaskPara.textContent = AllTaskArr[idx];
+        }
+        window.closeFullTaskModal = function() {
+            fullTaskModal.classList.add("opacity-0", "invisible");
+        }
+
+        // Edit task
+        const editModal = document.getElementById("editModal");
+        const editForm = document.getElementById("editForm");
+        const editInput = document.getElementById("editTask");
+        let currentEditIdx = null;
+
+        window.editTask = function(idx) {
+            loadTasks();
+            currentEditIdx = idx;
+            editInput.value = AllTaskArr[idx];
+            editModal.classList.remove("opacity-0", "invisible");
+        }
+        window.closeEditModal = function() {
+            editModal.classList.add("opacity-0", "invisible");
+        }
+
+        editForm.addEventListener("submit", e => {
+            e.preventDefault();
+            const newTask = editInput.value.trim();
+            if (!newTask) {
+                errMsg.textContent = "Please provide a task.";
+            } else {
+                errMsg.textContent = "";
+                loadTasks();
+                AllTaskArr[currentEditIdx] = newTask;
+                saveTasks();
+                showTasks();
+                editForm.reset();
+                closeEditModal();
+            }
+        });
+
+        // Delete task
+        window.deleteTask = function(idx) {
+            loadTasks();
+            AllTaskArr.splice(idx, 1);
+            saveTasks();
+            showTasks();
+        }
+
+        // Initial render
+        showTasks();
+    </script>
+
+    
+</body>
+</html>
