@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>create tabs</title>
+</head>
+
+<body>
+    <div class="w-screen h-screen flex ">
+        <div class="m-auto border rounded shadow w-[600px]">
+            <div id="headings" class="flex justify-between align-center">
+                <div class="w-full text-center border-r py-2 cursor-pointer ">Dhaka</div>
+                <div class="w-full text-center border-r py-2 cursor-pointer border-b bg-blue-500 hover:bg-red-400">Chittagong</div>
+                <div class="w-full text-center border-r py-2 cursor-pointer border-b bg-blue-500 hover:bg-red-400">Comilla</div>
+                <div class="w-full text-center  py-2 cursor-pointer border-b bg-blue-500 hover:bg-red-400">Bogura</div>
+            </div>
+
+
+            <div id="details" class="relative h-40">
+                <div class="absolute top-0 left-0 w-full h-full p-4 transition-all duration-300 ease-in-out">Dhaka is the capital of Bangladesh.Its was founded in 1610.ipsum dolor sit amet, consectetur
+                    adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </div>
+                <div class="absolute top-0 left-0 w-full h-full p-4 opacity-0 visually-hidden transition-all duration-300 ease-in-out">Chittagong is a major port city.Its was founded in 1666.ipsum dolor sit amet, consectetur
+                    adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </div>
+                <div class="absolute top-0 left-0 w-full h-full p-4 opacity-0 visually-hidden transition-all duration-300 ease-in-out">Comilla is known for its historical sites.Its was founded in 1765.ipsum dolor sit amet, consectetur
+                    adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </div>
+                <div class="absolute top-0 left-0 w-full h-full p-4 opacity-0 visually-hidden transition-all duration-300 ease-in-out">Bogura is famous for its agriculture.Its was founded in 1800.ipsum dolor sit amet, consectetur
+                    adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const headings = document.getElementById('headings').children;
+        const details = document.getElementById('details').children;
+
+       headings[0].addEventListener('click', () => {
+            headings[0].classList.remove('border-b', 'bg-blue-500', 'hover:bg-red-400');
+            headings[1].classList.add('border-b', 'bg-blue-500', 'hover:bg-red-400');
+            headings[2].classList.add('border-b', 'bg-blue-500', 'hover:bg-red-400');
+            headings[3].classList.add('border-b', 'bg-blue-500', 'hover:bg-red-400');
+            details[0].classList.remove('opacity-0', 'visually-hidden');
+            details[1].classList.add('opacity-0', 'visually-hidden');
+            details[2].classList.add('opacity-0', 'visually-hidden');
+            details[3].classList.add('opacity-0', 'visually-hidden');
+
+
+        })
+        headings[1].addEventListener('click', () => {
+           headings[0].classList.add('border-b', 'bg-blue-500', 'hover:bg-red-400');
+            headings[1].classList.remove('border-b', 'bg-blue-500', 'hover:bg-red-400');
+            headings[2].classList.add('border-b', 'bg-blue-500', 'hover:bg-red-400');
+            headings[3].classList.add('border-b', 'bg-blue-500', 'hover:bg-red-400');
+            details[0].classList.add('opacity-0', 'visually-hidden');
+            details[1].classList.remove ('opacity-0', 'visually-hidden');
+            details[2].classList.add('opacity-0', 'visually-hidden');
+            details[3].classList.add('opacity-0', 'visually-hidden');
+        })
+
+        headings[2].addEventListener('click', () => {
+           headings[0].classList.add('border-b', 'bg-blue-500', 'hover:bg-red-400');
+            headings[1].classList.add('border-b', 'bg-blue-500', 'hover:bg-red-400');
+            headings[2].classList.remove('border-b', 'bg-blue-500', 'hover:bg-red-400');
+            headings[3].classList.add('border-b', 'bg-blue-500', 'hover:bg-red-400');
+            details[0].classList.add('opacity-0', 'visually-hidden');
+            details[1].classList.add('opacity-0', 'visually-hidden');
+            details[2].classList.remove('opacity-0', 'visually-hidden');
+            details[3].classList.add('opacity-0', 'visually-hidden');
+        })
+
+        headings[3].addEventListener('click', () => {
+            headings[0].classList.add('border-b', 'bg-blue-500', 'hover:bg-red-400');
+            headings[1].classList.add('border-b', 'bg-blue-500', 'hover:bg-red-400');
+            headings[2].classList.add('border-b', 'bg-blue-500', 'hover:bg-red-400');
+            headings[3].classList.remove('border-b', 'bg-blue-500', 'hover:bg-red-400');
+            details[0].classList.add('opacity-0', 'visually-hidden');
+            details[1].classList.add('opacity-0', 'visually-hidden');
+            details[2].classList.add('opacity-0', 'visually-hidden');
+            details[3].classList.remove('opacity-0', 'visually-hidden');
+        })
+        
+
+        /*
+        Array.from(headings).forEach((head, ind) => {
+            head.addEventListener('click', () => {
+                Array.from(headings).forEach((h,i) => {
+                   if (i === ind) {
+                        h.classList.remove('border-b','bg-blue-500', 'hover:bg-red-400');
+                        details[i].classList.remove('opacity-0', 'visually-hidden');
+                    } else {
+                        h.classList.add('border-b','bg-blue-500', 'hover:bg-red-400');
+                        details[i].classList.add('opacity-0', 'visually-hidden');
+                    }
+                });
+            });
+        });
+        */
+
+    </script>
+
+</body>
+
+</html>
